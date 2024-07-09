@@ -1,0 +1,16 @@
+.cell{
+    border: 1px solid rgb(190, 190, 190);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    user-select: none;
+}
+
+.cell-selected{
+    background-color: rgb(108, 189, 255);
+    border-radius: 10px;
+    border:none;
+}
