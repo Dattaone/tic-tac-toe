@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import {Cell} from './components/Cell'
+import { Cell } from './components/Cell'
 import { TURNS } from './const'
 import { AppProps } from './types/propsType'
 import { saveGameStorage, resetGameStorage } from './utils/localStorageUtils'
-import { checkWinner, checkEndGame } from './utils/board'
+import { checkWinner, checkEndGame, generateCellId } from './utils/board'
 import { WinnerModal } from './components/WinnerModal'
-import confetti from 'canvas-confetti'
+// @ts-expect-error: No types available for canvas-confetti
+import confetti from 'canvas-confetti';
 import './styles/App.css'
 
 
@@ -27,6 +28,7 @@ function App() {
   })
   const [winner, setWinner] = useState(null as AppProps["winner"])
 
+  
   
   const resetBoard = () => {
     setBoard(Array(9).fill(null));
@@ -65,7 +67,7 @@ function App() {
       {
         board.map((cell,index)=>{
           return (
-            <Cell key={index} updateBoard={() => updateBoard(index)}>{cell}</Cell>
+            <Cell key={generateCellId(index)} updateBoard={() => updateBoard(index)}>{cell}</Cell>
           )
         })
       }

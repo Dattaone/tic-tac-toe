@@ -18,3 +18,5 @@ export const checkWinner = (boardToCheck: AppProps["board"]) => {
   }
   return null;
 };
+
+export const generateCellId = (index: number) => `cell-${index}`;
